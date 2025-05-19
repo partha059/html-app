@@ -1,14 +1,11 @@
-# Use Node.js image instead of Nginx
-FROM node:alpine
+# Use Nginx to serve static HTML
+FROM nginx:alpine
 
-# Set working directory
-WORKDIR /app
+# Copy your HTML files into the Nginx web server directory
+COPY index.html /usr/share/nginx/html/index.html
 
-# Copy application files
-COPY . .
+# Expose port 80 for web traffic
+EXPOSE 80
 
-# Install dependencies (if applicable)
-RUN npm install
-
-# Run tests
-CMD ["npm", "test"]
+# Start Nginx server
+CMD ["nginx", "-g", "daemon off;"]
