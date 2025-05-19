@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: html-app
-        image: your-registry/html-app:latest
+        image: partha059/html-app:latest
         ports:
         - containerPort: 80
 ---
@@ -30,4 +30,3 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 80
-
