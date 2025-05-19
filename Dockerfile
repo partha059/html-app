@@ -1,5 +1,14 @@
-FROM nginx:alpine
+# Use Node.js image instead of Nginx
+FROM node:alpine
 
-COPY index.html /usr/share/nginx/html/index.html
+# Set working directory
+WORKDIR /app
 
+# Copy application files
+COPY . .
 
+# Install dependencies (if applicable)
+RUN npm install
+
+# Run tests
+CMD ["npm", "test"]
